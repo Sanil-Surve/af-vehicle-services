@@ -1,5 +1,5 @@
 import React from "react";
-import one from "@/assets/images/one.jpeg";
+import aflogo from "@/assets/images/aflogo.jpeg";
 
 const About: React.FC = () => {
     return (
@@ -25,7 +25,7 @@ const About: React.FC = () => {
                 {/* Right Image */}
                 <div className="flex-1">
                     <img
-                        src={one}
+                        src={aflogo}
                         alt="AF Vehicle Services Workshop"
                         className="w-full rounded-lg shadow-lg object-cover"
                     />
