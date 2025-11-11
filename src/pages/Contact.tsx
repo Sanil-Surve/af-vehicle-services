@@ -53,7 +53,7 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <section className="w-full flex justify-center py-16 px-6 sm:px-12 bg-white">
+        <section className="w-full flex justify-center py-16 px-6 sm:px-12 bg-yellow-300">
             <div className="w-full max-w-3xl bg-gray-50 rounded-xl shadow-lg p-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
                     Contact Us
