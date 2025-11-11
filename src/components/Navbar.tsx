@@ -14,9 +14,9 @@ import aflogo from "@/assets/images/aflogo.jpeg";
 export function Navbar() {
     const [open, setOpen] = useState(false)
 
-    // const handleLinkClick = () => {
-    //     setOpen(false)
-    // }
+    const handleLinkClick = () => {
+        setOpen(false)
+    }
 
     return (
         <nav className="flex items-center justify-around w-full px-4 sm:px-8 py-5 border-b bg-background h-20">
@@ -51,24 +51,24 @@ export function Navbar() {
                         <SheetHeader>
                             <SheetTitle>AF Vehicle Services</SheetTitle>
                         </SheetHeader>
-                        <div className="mt-6 flex flex-col gap-4">
+                        <div className="mt-6 flex flex-col gap-4 ml-4">
                             <Link
                                 to="/"
-                                // onClick={handleLinkClick}
+                                onClick={handleLinkClick}
                                 className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
                             >
                                 Home
                             </Link>
                             <Link
                                 to="/about"
-                                // onClick={handleLinkClick}
+                                onClick={handleLinkClick}
                                 className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
                             >
                                 About Us
                             </Link>
                             <Link
                                 to="/contact"
-                                // onClick={handleLinkClick}
+                                onClick={handleLinkClick}
                                 className="text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
                             >
                                 Contact
