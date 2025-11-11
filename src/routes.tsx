@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import React from "react"
 import { Navbar } from "./components/Navbar"
+import Footer from "./components/Footer.tsx"
 
 // Lazy load pages
 const App = React.lazy(() => import('./App.tsx'))
@@ -14,11 +15,11 @@ export const router = createBrowserRouter([
     },
     {
         path: "/about",
-        element: <><Navbar /><About /></>,
+        element: <><Navbar /><About /><Footer /></>,
     },
     {
         path: "/contact",
-        element: <><Navbar /><Contact /></>,
+        element: <><Navbar /><Contact /><Footer /></>,
     },
 ])
 

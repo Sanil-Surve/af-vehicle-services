@@ -1,16 +1,36 @@
 import { Navbar } from "./components/Navbar";
 import Carousel from "./components/Carousel";
 import VideoPlayer from "./components/Video";
-import Accordion from "./components/Accourdian";
+import { FaqAccordion } from "./components/Accourdian";
+import Footer from "./components/Footer";
 // import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect";
 
 
-function App() {
+const faqItems = [
+  {
+    id: "1",
+    question: "What models are currently available in Af Vehicle Services?",
+    answer:
+      "AF Vehicle Services offers a range of bikes and Scooters on rents different commuting needs.",
+  },
+  {
+    id: "2",
+    question: "What models are currently available in Af Vehicle Services?",
+    answer:
+      "AF Vehicle Services offers a range of bikes and Scooters on rents different commuting needs.",
+  },
+  {
+    id: "3",
+    question:
+      "What models are currently available in Af Vehicle Services?",
+    answer:
+      "AF Vehicle Services offers a range of bikes and Scooters on rents different commuting needs.",
+  },
+];
 
-  const items = [
-    { id: 1, title: 'What is Tailwind?', content: 'Tailwind CSS is a utility-first CSS framework...' },
-    { id: 2, title: 'Why use TypeScript?', content: 'TypeScript adds types to JavaScript...' },
-  ];
+
+
+function App() {
 
   return (
     <>
@@ -18,7 +38,8 @@ function App() {
       <Navbar />
       <Carousel />
       <VideoPlayer />
-      <Accordion items={items} multiple={false} defaultOpen={0} />
+      <FaqAccordion items={faqItems} />
+      <Footer />
     </>
   )
 }
