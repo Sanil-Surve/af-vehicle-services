@@ -101,18 +101,18 @@ const Carousel = () => {
                     {/* Navigation Buttons */}
                     <button
                         onClick={goToPrevious}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 hover:scale-110"
+                        className="absolute left-4 top-1/2 -translate-y-1/2  hover:bg-white/30 text-white p-3 rounded-full transition-all duration-200 hover:scale-110"
                         aria-label="Previous slide"
                     >
-                        <ChevronLeft className="w-12 h-12" />
+                        <ChevronLeft className="w-12 h-12 sm:w-6 sm:h-6" />
                     </button>
 
                     <button
                         onClick={goToNext}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition-all duration-200 hover:scale-110"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 hover:bg-white/30  text-white p-3 rounded-full transition-all duration-200 hover:scale-110"
                         aria-label="Next slide"
                     >
-                        <ChevronRight className="w-12 h-12" />
+                        <ChevronRight className="w-12 h-12 sm:w-6 sm:h-6" />
                     </button>
 
                     {/* Dot Indicators */}
