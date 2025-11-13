@@ -1,7 +1,7 @@
-
 "use client";
 
 import React from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -17,6 +17,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { createClient } from "@supabase/supabase-js";
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const contactSchema = z.object({
     name: z.string().min(2, "Name is required"),
@@ -33,6 +38,8 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 const Contact: React.FC = () => {
+    const [isDialogOpen, setIsDialogOpen] = useState(false);
+
     const form = useForm<ContactFormValues>({
         resolver: zodResolver(contactSchema),
         defaultValues: {
@@ -49,11 +56,52 @@ const Contact: React.FC = () => {
     });
 
     const onSubmit = (values: ContactFormValues) => {
-        console.log("Form Submitted:", values);
+        (async () => {
+            const { data, error } = await supabase
+                .from("contact_form")
+                .insert([{
+                    name: values.name,
+                    contactnumber: values.contactNumber,
+                    email: values.email,
+                    location: values.location,
+                    vehicle: values.vehicle,
+                    hiredate: values.hireDate,
+                    submitdate: values.submitDate,
+                    previouscustomer: values.previousCustomer,
+                    description: values.description
+                }]);
+
+            if (error) {
+                console.error("Error inserting data:", error);
+                alert("Failed to submit form. Please try again.");
+            } else {
+                console.log("Inserted:", data);
+                setIsDialogOpen(true);
+                form.reset();
+            }
+        })();
     };
+
+    const SuccessDialog = () => (
+        isDialogOpen && (
+            <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
+                <div className="bg-white p-6 rounded-lg shadow-lg text-center w-80">
+                    <h3 className="text-xl font-semibold mb-4">Success</h3>
+                    <p className="mb-6">Form submitted successfully!</p>
+                    <button
+                        onClick={() => setIsDialogOpen(false)}
+                        className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800"
+                    >
+                        OK
+                    </button>
+                </div>
+            </div>
+        )
+    );
 
     return (
         <section className="w-full flex justify-center py-16 px-6 sm:px-12 bg-yellow-300">
+            <SuccessDialog />
             <div className="w-full max-w-3xl bg-gray-50 rounded-xl shadow-lg p-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
                     Contact Us
