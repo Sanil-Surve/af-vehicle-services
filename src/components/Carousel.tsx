@@ -12,28 +12,28 @@ const Carousel = () => {
     const slides = [
         {
             id: 1,
-            title: 'Beautiful Landscapes',
+            title: 'Royal Enfield Thunder 350',
             description: 'Explore stunning mountain views and natural wonders',
             color: 'from-blue-500 to-cyan-500',
             image: one
         },
         {
             id: 2,
-            title: 'Urban Architecture',
+            title: 'KTM Duke',
             description: 'Discover modern cityscapes and iconic buildings',
             color: 'from-purple-500 to-pink-500',
             image: two
         },
         {
             id: 3,
-            title: 'Ocean Paradise',
+            title: 'Classic 350',
             description: 'Experience the serenity of coastal destinations',
             color: 'from-teal-500 to-emerald-500',
             image: three
         },
         {
             id: 4,
-            title: 'Desert Adventures',
+            title: 'Yamaha',
             description: 'Journey through vast golden sand dunes',
             color: 'from-orange-500 to-amber-500',
             image: four
@@ -68,13 +68,13 @@ const Carousel = () => {
     return (
         <div className="flex items-center justify-center p-4">
             <div className="w-full max-w-5xl">
-                <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-950">
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     {/* Carousel Container */}
                     <div className="relative h-96 md:h-[500px]">
                         {slides.map((slide, index) => (
                             <div
                                 key={slide.id}
-                                className={`absolute inset-0 transition-all duration-700 ease-in-out ${index === currentIndex
+                                className={`absolute inset-0 ${index === currentIndex
                                     ? 'opacity-100 translate-x-0'
                                     : index < currentIndex
                                         ? 'opacity-0 -translate-x-full'
