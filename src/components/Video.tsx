@@ -1,7 +1,3 @@
-
-
-// "use client";
-
 import React, { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Pause, Maximize2, Volume2, VolumeX } from "lucide-react";
