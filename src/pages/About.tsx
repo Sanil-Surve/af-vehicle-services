@@ -3,7 +3,7 @@ import aflogo from "@/assets/images/aflogo.jpeg";
 
 const About: React.FC = () => {
     return (
-        <section className="bg-yellow-300 py-16 px-6 sm:px-12 lg:px-24">
+        <section className="bg-white py-16 px-6 sm:px-12 lg:px-24">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
                 {/* Left Content */}
                 <div className="flex-1 text-center lg:text-left">
