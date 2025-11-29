@@ -17,11 +17,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { createClient } from "@supabase/supabase-js";
-
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+import { useSupabase } from "@/hook/useSupabase";
 
 const contactSchema = z.object({
     name: z.string().min(2, "Name is required"),
@@ -38,6 +34,7 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 const Contact: React.FC = () => {
+    const supabase = useSupabase();
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
     const form = useForm<ContactFormValues>({
